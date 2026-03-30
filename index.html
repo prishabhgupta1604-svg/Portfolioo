@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prishabh Gupta — Marketing & BD Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F9F7F4;
+    --text: #1a1a1a;
+    --muted: #888;
+    --accent: #1A5276;
+    --accent-light: #EAF1F8;
+    --border: #E5E1DC;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(249,247,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-content { max-width: 680px; }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.3rem 0.9rem;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.35s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.65s forwards;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1.5px solid var(--text);
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { background: var(--text); color: white; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1s forwards;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 3rem;
+    letter-spacing: -0.01em;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 4rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: #444;
+    margin-bottom: 1.2rem;
+    font-size: 1.02rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--white); border-radius: 1rem; padding: 4rem; margin: 0 0; max-width: none; }
+  #skills > .inner { max-width: 1100px; margin: 0 auto; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 0.4rem;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .skill-pill:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .skill-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+
+  .exp-date {
+    font-size: 0.82rem;
+    color: var(--muted);
+    padding-top: 0.2rem;
+    letter-spacing: 0.04em;
+  }
+
+  .exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-org {
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  .exp-desc {
+    font-size: 0.93rem;
+    color: #555;
+    line-height: 1.75;
+  }
+
+  .exp-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 0.2rem 0.7rem;
+    border-radius: 2rem;
+    margin-top: 0.8rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  /* CERTIFICATIONS */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .cert-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1.5rem 1.6rem;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cert-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(26,82,118,0.08);
+  }
+
+  .cert-issuer {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .cert-name {
+    font-size: 0.98rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  /* PROJECTS */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    background: var(--white);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .project-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .project-desc {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* PORTFOLIO PLACEHOLDER */
+  .portfolio-placeholder {
+    border: 2px dashed var(--border);
+    border-radius: 0.75rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--muted);
+  }
+
+  .portfolio-placeholder p { font-size: 0.9rem; margin-top: 0.5rem; }
+
+  /* CONTACT */
+  #contact { background: var(--accent); border-radius: 1rem; max-width: none; }
+  #contact > .inner { max-width: 1100px; margin: 0 auto; padding: 5rem 4rem; }
+
+  #contact .section-label { color: rgba(255,255,255,0.6); }
+  #contact .section-title { color: white; margin-bottom: 1rem; }
+  #contact p { color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; font-size: 1rem; }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.35rem;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.2s;
+  }
+
+  .contact-link:hover { background: rgba(255,255,255,0.22); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .project-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    #skills { padding: 3rem 1.5rem; }
+    #contact > .inner { padding: 3rem 1.5rem; }
+    .divider { margin: 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Prishabh Gupta</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Open to opportunities · New Delhi</span>
+    <h1>Marketing &<br><em>Business</em><br>Graduate</h1>
+    <p class="hero-sub">BBA graduate with hands-on experience in digital marketing, content creation, business development, and team leadership.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="#experience" class="btn-outline">View my work</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-label">About Me</div>
+    <div class="section-title">Turning ideas into<br>real-world impact</div>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>I'm Prishabh — a BBA graduate from JIMS Kalkaji, New Delhi, with a specialization in Marketing. I'm passionate about building brands, creating content that actually connects, and developing business relationships that last.</p>
+      <p>From managing a 1000+ crore GMV startup's outreach to designing social media campaigns, I bring a mix of strategic thinking and hands-on execution. I've led teams, coordinated large-scale events, and earned 7 industry certifications — because I believe in learning by doing.</p>
+      <p>I'm currently looking for full-time or internship roles in Marketing, Digital Marketing, Business Development, or Content Creation.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number">7+</div>
+        <div class="stat-label">Industry Certifications</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Events Organised</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Research Projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">What I bring</div>
+      <div class="section-title">Core Skills</div>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-pill"><span class="skill-dot"></span>Digital Marketing</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Social Media Management</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Content Creation</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Canva & Graphic Design</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Business Development</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Client Outreach & Retention</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Advanced Excel & Data Analysis</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Marketing Strategy</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Team Leadership</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Event Coordination</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Communication & Presentation</div>
+      <div class="skill-pill"><span class="skill-dot"></span>Creative Direction</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="margin-top:0">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="reveal">
+    <div class="section-label">Where I've worked & led</div>
+    <div class="section-title">Experience</div>
+  </div>
+  <div class="exp-list reveal">
+
+    <div class="exp-item">
+      <div class="exp-date">Summer 2024</div>
+      <div>
+        <div class="exp-role">Digital Marketing & Content Creation Intern</div>
+        <div class="exp-org">Green Spectrum</div>
+        <div class="exp-desc">Created graphics, social media posts, and website content using Canva. Developed and managed content calendars aligned with campaign goals, and collaborated with the marketing team to execute strategies that improved brand visibility and audience engagement.</div>
+        <span class="exp-tag">Internship</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2024 – 2025</div>
+      <div>
+        <div class="exp-role">Vice President</div>
+        <div class="exp-org">Valiant — Gaming Society, JIMS Kalkaji</div>
+        <div class="exp-desc">Led a team of 10+ members managing day-to-day operations, event planning, and community engagement. Coordinated with vendors and external contacts for inter-college events, drove campus-wide marketing campaigns, and handled member grievances and escalations.</div>
+        <span class="exp-tag">Leadership</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="reveal">
+    <div class="section-label">Credentials</div>
+    <div class="section-title">Certifications</div>
+  </div>
+  <div class="cert-grid reveal">
+    <div class="cert-card">
+      <div class="cert-issuer">NPTEL · IIT Madras</div>
+      <div class="cert-name">Business Development</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">NPTEL · IIT Kharagpur</div>
+      <div class="cert-name">Training and Development</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Adobe</div>
+      <div class="cert-name">Multichannel Content Marketing</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Internshala</div>
+      <div class="cert-name">Digital Marketing</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Internshala</div>
+      <div class="cert-name">Advanced Excel</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">JIMS Kalkaji</div>
+      <div class="cert-name">Social Media Marketing</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">JIMS Kalkaji</div>
+      <div class="cert-name">Advanced Excel</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Concours Romain Rolland</div>
+      <div class="cert-name">French A2 — Appreciation Certificate</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <div class="section-label">Research & Work</div>
+    <div class="section-title">Projects</div>
+  </div>
+  <div class="project-grid reveal">
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-title">Comparative Study: Starbucks vs. Tim Hortons</div>
+      <div class="project-desc">Analysed brand positioning, digital marketing strategy, pricing models, and market differentiation between two of the world's leading coffee chains across global markets.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">Comparative Study: HDFC Bank vs. SBI</div>
+      <div class="project-desc">Evaluated financial performance metrics, customer acquisition strategies, brand communication approaches, and digital banking adoption between India's leading private and public sector banks.</div>
+    </div>
+  </div>
+
+  <!-- Portfolio Gallery -->
+  <div class="reveal" style="margin-top:2.5rem">
+    <div class="section-label" style="margin-bottom:1rem">Design Portfolio</div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1.2rem; margin-bottom:1.2rem;">
+
+      <div style="border:1px solid var(--border); border-radius:0.5rem; overflow:hidden; background:var(--white); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 28px rgba(0,0,0,0.09)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+        <img src="https://i.ibb.co/3yhKKX1D/Sewing-area-1400x950mm.png" alt="Design 1" style="width:100%; height:200px; object-fit:cover; display:block;">
+        <div style="padding:1rem 1.2rem;">
+          <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:500; margin-bottom:0.3rem;">Canva Design</div>
+          <div style="font-size:0.92rem; color:var(--text);">Sewing Area Layout</div>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:0.5rem; overflow:hidden; background:var(--white); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 28px rgba(0,0,0,0.09)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+        <img src="https://i.ibb.co/ds13XP6H/Screenshot-2026-03-31-at-2-54-17-AM.png" alt="Design 2" style="width:100%; height:200px; object-fit:cover; display:block;">
+        <div style="padding:1rem 1.2rem;">
+          <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:500; margin-bottom:0.3rem;">Social Media</div>
+          <div style="font-size:0.92rem; color:var(--text);">Graphic Design Work</div>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border); border-radius:0.5rem; overflow:hidden; background:var(--white); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 28px rgba(0,0,0,0.09)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+        <img src="https://i.ibb.co/Xrdd300t/Screenshot-2026-03-31-at-2-57-04-AM.png" alt="Design 3" style="width:100%; height:200px; object-fit:cover; display:block;">
+        <div style="padding:1rem 1.2rem;">
+          <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:500; margin-bottom:0.3rem;">Content Creation</div>
+          <div style="font-size:0.92rem; color:var(--text);">Canva Design Work</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Video link -->
+    <a href="https://drive.google.com/file/d/1OEe4Bm67yMPJrvRWmdNew-_MAIQJH4Wd/view?usp=drive_link" target="_blank" style="display:inline-flex; align-items:center; gap:0.6rem; border:1.5px solid var(--accent); color:var(--accent); text-decoration:none; padding:0.8rem 1.6rem; border-radius:0.35rem; font-size:0.88rem; font-weight:500; transition: background 0.2s, color 0.2s;" onmouseover="this.style.background='var(--accent)';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">
+      ▶ Watch Video / Animation Work
+    </a>
+  </div>
+
+  <!-- Canva Presentation -->
+  <div class="reveal" style="margin-top:3rem;">
+    <div class="section-label" style="margin-bottom:0.5rem;">Featured Presentation</div>
+    <div style="font-size:1rem; font-weight:500; color:var(--text); margin-bottom:1.2rem;">Marketing Project — Prishabh Gupta</div>
+    <div style="position:relative; width:100%; height:0; padding-top:56.25%; border-radius:0.75rem; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.10); border:1px solid var(--border);">
+      <iframe loading="lazy" style="position:absolute; width:100%; height:100%; top:0; left:0; border:none; padding:0; margin:0;"
+        src="https://www.canva.com/design/DAF1AHOEvrU/UuCbyJCSH7QTGBmYOd0dMQ/view?embed&autoplay=1&loop=1"
+        allowfullscreen="allowfullscreen" allow="fullscreen autoplay">
+      </iframe>
+    </div>
+    <div style="margin-top:0.7rem; font-size:0.8rem; color:var(--muted);">Click the presentation to interact · Opens full screen on click</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">Let's connect</div>
+      <div class="section-title">Get In Touch</div>
+      <p>I'm actively looking for opportunities in marketing, digital marketing, and business development. If you think I'd be a good fit — let's talk.</p>
+      <div class="contact-links">
+        <a href="/cdn-cgi/l/email-protection#19696b706a71787b717e6c696d78282f292d597e74787075377a7674" class="contact-link">
+          ✉ <span class="__cf_email__" data-cfemail="0777756e746f66656f60727773663631373347606a666e6b2964686a">[email&#160;protected]</span>
+        </a>
+        <a href="tel:+919310774047" class="contact-link">
+          📞 +91 93107 74047
+        </a>
+        <a href="https://linkedin.com/in/prishabh-gupta" target="_blank" class="contact-link">
+          🔗 LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Prishabh Gupta · New Delhi, India
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      
